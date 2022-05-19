@@ -4,7 +4,11 @@ const http = require('http');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+  },
+});
 
 
 const rooms = new Map();
@@ -16,6 +20,9 @@ app.get('/rooms', (request, response) => {
 
 io.on('connection', socket => {
   console.log('socket connected', socket.id);
+  socket.on('disconnect', () => {
+    console.log('user disconnected', socket.id);
+  });
 });
 
 server.listen(9999, (error) => {
