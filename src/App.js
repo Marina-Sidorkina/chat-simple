@@ -1,4 +1,5 @@
 import './App.css';
+import LoginForm from './components/LoginForm';
 import io from 'socket.io-client';
 
 function App() {
@@ -8,13 +9,7 @@ function App() {
 
   return (
     <div className="App">
-     <form className="form">
-       <input className="form-control form-control-lg" type="text" placeholder="Room ID"
-              aria-label="Room ID" />
-       <input className="form-control form-control-lg" type="text" placeholder="Ваше имя"
-              aria-label="Ваше имя" />
-       <button className="form__btn btn btn-success" type="submit">Войти</button>
-     </form>
+      <LoginForm />
     </div>
   );
 }
