@@ -10,7 +10,6 @@ const io = new Server(server, {
   },
 });
 
-
 const rooms = new Map();
 
 app.get('/rooms', (request, response) => {
