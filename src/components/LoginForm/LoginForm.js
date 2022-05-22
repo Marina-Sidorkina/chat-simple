@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginForm.css';
+import socket from '../../socket';
 
 const LoginForm = () => {
   return (

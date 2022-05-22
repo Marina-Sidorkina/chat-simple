@@ -17,6 +17,10 @@ app.get('/rooms', (request, response) => {
   response.json(rooms);
 });
 
+app.post('/rooms', (request, response) => {
+  console.log('POST');
+});
+
 io.on('connection', socket => {
   console.log('socket connected', socket.id);
   socket.on('disconnect', () => {
