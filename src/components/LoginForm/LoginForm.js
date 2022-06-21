@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
-import socket from '../../socket';
+import axios from 'axios';
 
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
   const [ roomId, setRoomId ] = useState('');
   const [ userName, setUserName ] = useState('');
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    console.log(roomId, userName);
+
+    axios.post('/rooms', {
+      roomId,
+      userName
+    }).then(onLogin);
   }
 
   return (
